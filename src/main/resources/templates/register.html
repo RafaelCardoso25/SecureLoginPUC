@@ -9,27 +9,34 @@
 <body>
 <main class="container">
     <div class="lado-imagem">
-        <img th:src="@{/images/logo.png}" alt="Logo">
+        <img th:src="@{/images/logo.svg}" alt="SecureLogin PUC">
+        <span>SecureLogin PUC</span>
     </div>
 
     <div class="lado-formulario">
-        <h1>Cadastro</h1>
+        <h1>Criar conta</h1>
+        <p class="subtitulo">Preencha os dados para se cadastrar</p>
 
         <div class="aviso aviso-erro" th:if="${erro}" th:text="${erro}"></div>
 
         <form th:action="@{/register}" method="post">
-            <input type="text" name="username" placeholder="Usuário" th:value="${username}" required autofocus>
-            <input type="email" name="email" placeholder="Email" th:value="${email}" required>
-            <input type="password" name="password" placeholder="Senha" required>
-            <input type="password" name="confirmPassword" placeholder="Confirmar senha" required>
+            <label for="username">Usuário</label>
+            <input type="text" id="username" name="username" th:value="${username}" required autofocus>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" th:value="${email}" required>
+
+            <label for="password">Senha</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="confirmPassword">Confirmar senha</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required>
+
             <button type="submit">Cadastrar</button>
         </form>
 
         <div class="rodape">
-            <p>Já tem cadastro?</p>
-            <a th:href="@{/login}">Fazer login</a>
-            |
-            <a class="laranja" th:href="@{/recoverpassword}">Esqueceu sua senha?</a>
+            Já tem cadastro? <a th:href="@{/login}">Fazer login</a>
         </div>
     </div>
 </main>

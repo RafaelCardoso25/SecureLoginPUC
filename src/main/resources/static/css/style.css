@@ -1,12 +1,11 @@
 :root {
-    --azul: #1272ba;
-    --azul-escuro: #0f5e9c;
-    --laranja: #e8590c;
-    --texto: #444;
-    --cinza: #666;
-    --borda: #ccc;
-    --erro: #c0392b;
-    --sucesso: #2e7d32;
+    --preto: #16181d;
+    --grafite: #3a3d45;
+    --cinza: #6b7079;
+    --borda: #dcdee3;
+    --fundo: #eceef1;
+    --erro: #9b2c2c;
+    --sucesso: #276749;
 }
 
 * {
@@ -20,35 +19,46 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 24px;
     font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
-    color: var(--texto);
-    background: #f4f5f7;
+    font-size: 15px;
+    color: var(--preto);
+    background: var(--fundo);
 }
 
 .container {
     display: flex;
     width: 100%;
-    max-width: 900px;
-    min-height: 460px;
+    max-width: 880px;
+    min-height: 470px;
     background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 14px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--borda);
+    border-radius: 6px;
     overflow: hidden;
 }
 
 .lado-imagem {
     flex: 1;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 26px;
     padding: 40px;
-    background: var(--azul);
+    background: var(--preto);
 }
 
 .lado-imagem img {
-    max-width: 100%;
+    width: 150px;
     height: auto;
+}
+
+.lado-imagem span {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.55);
 }
 
 .lado-formulario {
@@ -56,117 +66,136 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 50px 45px;
+    padding: 48px 46px;
 }
 
 h1 {
-    margin-bottom: 22px;
-    font-size: 1.25rem;
-    text-align: center;
-    color: #555;
+    margin-bottom: 4px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: -0.2px;
+}
+
+.subtitulo {
+    margin-bottom: 26px;
+    font-size: 0.88rem;
+    color: var(--cinza);
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    color: var(--grafite);
 }
 
 input {
     width: 100%;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
     padding: 11px 13px;
-    font-size: 0.95rem;
+    font-size: 0.93rem;
     font-family: inherit;
-    color: var(--texto);
+    color: var(--preto);
+    background: #fff;
     border: 1px solid var(--borda);
     border-radius: 4px;
+    transition: border-color 0.15s;
 }
 
 input:focus {
     outline: none;
-    border-color: var(--azul);
+    border-color: var(--preto);
+}
+
+input::placeholder {
+    color: #a7abb3;
 }
 
 button {
     width: 100%;
-    margin-top: 4px;
-    padding: 11px;
-    font-size: 0.95rem;
+    margin-top: 6px;
+    padding: 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
     font-family: inherit;
+    letter-spacing: 0.3px;
     color: #fff;
-    background: var(--azul);
+    background: var(--preto);
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: background 0.15s;
 }
 
 button:hover {
-    background: var(--azul-escuro);
+    background: var(--grafite);
 }
 
 .rodape {
-    margin-top: 18px;
+    margin-top: 26px;
+    padding-top: 20px;
     font-size: 0.85rem;
-    text-align: center;
     color: var(--cinza);
+    border-top: 1px solid var(--borda);
 }
 
-.rodape p {
-    margin-bottom: 4px;
-    font-weight: 600;
+.rodape + .rodape {
+    margin-top: 8px;
+    padding-top: 0;
+    border-top: none;
 }
 
 .rodape a {
-    color: var(--azul);
+    color: var(--preto);
     font-weight: 600;
-}
-
-.rodape a.laranja {
-    color: var(--laranja);
+    text-decoration: none;
+    border-bottom: 1px solid var(--borda);
 }
 
 .rodape a:hover {
-    text-decoration: none;
+    border-bottom-color: var(--preto);
 }
 
 .aviso {
-    margin-bottom: 14px;
+    margin-bottom: 18px;
     padding: 10px 12px;
     font-size: 0.85rem;
     border-radius: 4px;
-    text-align: center;
+    border-left: 3px solid;
 }
 
 .aviso-erro {
     color: var(--erro);
-    background: #fdecea;
-    border: 1px solid #f5c6c2;
+    background: #fdf2f2;
+    border-color: var(--erro);
 }
 
 .aviso-sucesso {
     color: var(--sucesso);
-    background: #e8f5e9;
-    border: 1px solid #c3e6c8;
+    background: #f1f8f4;
+    border-color: var(--sucesso);
 }
 
 .caixa {
     width: 100%;
-    max-width: 420px;
-    padding: 45px 40px;
-    text-align: center;
+    max-width: 440px;
+    padding: 46px 42px;
     background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 14px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--borda);
+    border-radius: 6px;
 }
 
 .caixa .saudacao {
     margin-bottom: 8px;
-    font-size: 1.15rem;
-}
-
-.caixa .saudacao strong {
-    color: var(--azul);
+    font-size: 1.05rem;
 }
 
 .caixa p {
     font-size: 0.9rem;
-    line-height: 1.6;
+    line-height: 1.65;
     color: var(--cinza);
 }
 
@@ -174,24 +203,25 @@ button:hover {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-top: 26px;
+    margin-top: 28px;
 }
 
 .botao-secundario {
     display: block;
-    padding: 11px;
-    font-size: 0.95rem;
+    padding: 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
     text-align: center;
     text-decoration: none;
-    color: var(--texto);
+    color: var(--preto);
     background: #fff;
     border: 1px solid var(--borda);
     border-radius: 4px;
-    transition: background 0.2s;
+    transition: background 0.15s;
 }
 
 .botao-secundario:hover {
-    background: #f4f5f7;
+    background: var(--fundo);
 }
 
 @media (max-width: 720px) {
@@ -200,14 +230,15 @@ button:hover {
     }
 
     .lado-imagem {
-        padding: 30px;
+        gap: 18px;
+        padding: 32px;
     }
 
     .lado-imagem img {
-        max-width: 200px;
+        width: 96px;
     }
 
     .lado-formulario {
-        padding: 35px 28px;
+        padding: 34px 28px;
     }
 }

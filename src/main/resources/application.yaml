@@ -2,14 +2,9 @@ spring:
   application:
     name: SecureLoginPUC
 
-  # Desliga o cache de template: voce edita o HTML e da F5, sem reiniciar.
-  # Em producao isso ficaria true, mas para desenvolver economiza muito tempo.
   thymeleaf:
     cache: false
 
-  # Credenciais SMTP vem de variaveis de ambiente.
-  # Nunca coloque a senha do Gmail aqui -- este arquivo vai para o GitHub.
-  # O que vem depois dos ":" e apenas o valor padrao quando a variavel nao existe.
   mail:
     host: smtp.gmail.com
     port: 587
@@ -23,12 +18,9 @@ spring:
             enable: true
 
 app:
-  # Onde o JSON de usuarios e gravado. Fora de src/main/resources de proposito:
-  # o que esta em resources vira parte do .jar e fica somente leitura.
   users:
     file: ${USERS_FILE:./data/users.json}
 
-  # Usuarios criados automaticamente na primeira execucao (ver UserConfig).
   seed:
     user:
       username: rafael
@@ -41,5 +33,4 @@ app:
       password: ${SEED_ADMIN_PASSWORD:admin}
       role: ADMIN
 
-  # Usado para montar o link de recuperacao enviado por email.
   base-url: ${APP_BASE_URL:http://localhost:8080}

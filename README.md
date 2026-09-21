@@ -1,10 +1,8 @@
 # SecureLogin PUC
 
-Aplicação web de autenticação e cadastro de usuários desenvolvida com Spring Boot e Thymeleaf, para a Atividade 02 da disciplina.
+Aplicação web de autenticação e cadastro de usuários desenvolvida com Spring Boot e Thymeleaf.
 
-A interface usa um tema escuro próprio, com fundo em gradiente animado, cartão translúcido (efeito vidro), transições nos campos e botões, e layout responsivo.
-
-**Integrantes:** TODO - nome dos dois integrantes da dupla
+**Integrantes:** Rafael Abi-Saber Cardoso e Mario Eduardo
 
 ---
 
@@ -19,7 +17,7 @@ A interface usa um tema escuro próprio, com fundo em gradiente animado, cartão
 
 ## Funcionalidades
 
-- Login por usuário **ou** email
+- Login por usuário ou email
 - Cadastro de novos usuários com validação
 - Senhas armazenadas com hash BCrypt
 - Bloqueio de acesso a páginas protegidas para usuários não autenticados
@@ -58,7 +56,9 @@ src/
 │   │       └── EmailService.java
 │   └── resources/
 │       ├── application.yaml
-│       ├── static/css/style.css
+│       ├── static/
+│       │   ├── css/style.css
+│       │   └── images/logo.svg
 │       └── templates/
 │           ├── login.html
 │           ├── register.html
@@ -102,7 +102,7 @@ Depois acesse http://localhost:8080/login
 
 ### Usuários iniciais
 
-Na primeira execução a aplicação cria o arquivo `data/users.json` com dois usuários definidos em `app.seed` no `application.yaml`:
+Na primeira execução a aplicação cria o arquivo `data/users.json` com dois usuários:
 
 | Usuário  | Senha   | Perfil |
 |----------|---------|--------|
@@ -113,35 +113,37 @@ Os usuários cadastrados pela tela de registro são gravados nesse mesmo arquivo
 
 ## Configuração do ambiente
 
-Nenhuma credencial fica no código-fonte. Os valores sensíveis são lidos de variáveis de ambiente, com valores padrão definidos em `application.yaml`:
+A aplicação roda sem nenhuma configuração adicional. As variáveis abaixo são opcionais e só precisam ser definidas para o envio real de email:
 
 | Variável              | Descrição                                      | Padrão                  |
 |-----------------------|------------------------------------------------|-------------------------|
 | `MAIL_USERNAME`       | Conta Gmail que envia o email de recuperação   | vazio                   |
-| `MAIL_PASSWORD`       | Senha de app do Gmail (não é a senha da conta) | vazio                   |
+| `MAIL_PASSWORD`       | Senha de app do Gmail                          | vazio                   |
 | `SEED_USER_PASSWORD`  | Senha do usuário inicial                       | `1234`                  |
 | `SEED_ADMIN_PASSWORD` | Senha do administrador inicial                 | `admin`                 |
 | `USERS_FILE`          | Caminho do arquivo JSON de usuários            | `./data/users.json`     |
 | `APP_BASE_URL`        | URL base usada no link enviado por email       | `http://localhost:8080` |
 
-### Configurando o envio de email
+Nenhuma credencial fica no código-fonte. O arquivo `data/users.json` está no `.gitignore` porque contém os hashes das senhas.
+
+### Recuperação de senha
+
+O usuário informa em `/recoverpassword` o mesmo email que usou no cadastro. A aplicação gera um token e monta o link de redefinição.
+
+Sem as variáveis `MAIL_USERNAME` e `MAIL_PASSWORD` configuradas, o link é impresso no console da aplicação em vez de ser enviado por email, e o fluxo pode ser testado normalmente.
+
+Para enviar o email de verdade é preciso uma conta remetente. Usando Gmail:
 
 1. Ative a verificação em duas etapas na conta Google.
 2. Gere uma senha de app em https://myaccount.google.com/apppasswords
-3. Antes de iniciar a aplicação, defina as variáveis:
+3. Defina as variáveis antes de iniciar a aplicação:
 
 ```powershell
-$env:MAIL_USERNAME = "seuemail@gmail.com"
-$env:MAIL_PASSWORD = "sua-senha-de-app"
+$env:MAIL_USERNAME = "conta@gmail.com"
+$env:MAIL_PASSWORD = "senha-de-app"
 ```
 
-Sem essas variáveis a aplicação continua funcionando: o link de recuperação é impresso no console em vez de ser enviado por email.
-
-O arquivo `data/users.json` está no `.gitignore` porque contém os hashes das senhas.
-
 ## Capturas de tela
-
-TODO - adicionar imagens das telas de login e cadastro.
 
 ## Licença
 
