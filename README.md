@@ -145,6 +145,12 @@ $env:MAIL_PASSWORD = "senha-de-app"
 
 ## Capturas de tela
 
+![Print](/src/main/resources/static/images/{A304D990-D04F-48C1-85A8-B0F579D0FE6F}.png)
+![Print](/src/main/resources/static/images/{4E3F721D-122A-4740-8AE0-53E7F2974F29}.png)
+![Print](/src/main/resources/static/images/{EC70BEBB-12BD-4CA4-A554-5491456FB111}.png)
+![Print](/src/main/resources/static/images/{7D772453-55CE-4E43-900D-83C0B69826DB}.png)
+![Print](/src/main/resources/static/images/{659D9E1E-DDA3-4DA3-96D4-13EF99031E7F}.png)
+
 ## Licença
 
 MIT
