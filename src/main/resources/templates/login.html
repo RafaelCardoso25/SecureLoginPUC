@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<main class="container">
+    <div class="lado-imagem">
+        <img th:src="@{/images/logo.png}" alt="Logo">
+    </div>
+
+    <div class="lado-formulario">
+        <h1>Login</h1>
+
+        <div class="aviso aviso-erro" th:if="${param.error}">Usuário ou senha inválidos.</div>
+        <div class="aviso aviso-sucesso" th:if="${param.logout}">Sessão encerrada com sucesso.</div>
+        <div class="aviso aviso-sucesso" th:if="${param.registered}">Cadastro realizado! Faça seu login.</div>
+        <div class="aviso aviso-sucesso" th:if="${param.reset}">Senha alterada! Faça seu login.</div>
+
+        <form th:action="@{/login}" method="post">
+            <input type="text" name="username" placeholder="Usuário ou email" required autofocus>
+            <input type="password" name="password" placeholder="Senha" required>
+            <button type="submit">Entrar</button>
+        </form>
+
+        <div class="rodape">
+            <p>Ainda não tem cadastro?</p>
+            <a th:href="@{/register}">Cadastre-se</a>
+            |
+            <a class="laranja" th:href="@{/recoverpassword}">Esqueceu sua senha?</a>
+        </div>
+    </div>
+</main>
+</body>
+</html>

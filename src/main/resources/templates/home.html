@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Início</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<main class="caixa">
+    <h1>Bem-vindo</h1>
+    <p class="saudacao">Olá, <strong th:text="${username}">usuário</strong>!</p>
+    <p>Você está autenticado e acessando uma área protegida da aplicação.</p>
+
+    <div class="acoes">
+        <a class="botao-secundario" th:if="${admin}" th:href="@{/admin}">Área administrativa</a>
+
+        <form th:action="@{/logout}" method="post">
+            <button type="submit">Sair</button>
+        </form>
+    </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erro</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<main class="caixa">
+    <h1>Algo deu errado</h1>
+    <p class="saudacao" th:text="${status} ?: 'Erro inesperado'">Erro</p>
+    <p th:text="${error}">Não foi possível concluir sua solicitação.</p>
+
+    <div class="acoes">
+        <a class="botao-secundario" th:href="@{/login}">Voltar ao login</a>
+    </div>
+</main>
+</body>
+</html>

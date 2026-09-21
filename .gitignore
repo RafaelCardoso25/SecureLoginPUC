@@ -1,0 +1,41 @@
+HELP.md
+target/
+.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+### Projeto ###
+# Base de usuarios gerada em runtime (contem hashes de senha) -- nao versionar.
+# A aplicacao recria o arquivo com os usuarios de app.seed.* na primeira execucao.
+data/
+
+# Variaveis de ambiente locais (credenciais SMTP)
+.env
